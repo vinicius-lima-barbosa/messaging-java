@@ -1,0 +1,76 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse/STS
+.classpath
+.project
+.settings/
+.apt_generated/
+.springBeans/
+.sts4-cache/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+spring.log
+
+# Environment files
+.env
+.env.*
+
+# Docker
+*.pid
+*.seed
+docker-compose.override.yml
+
+# Database
+*.h2.db
+*.mv.db
+*.db
+
+# Security
+*.keystore
+*.jks
+*.p12
+
+# Test reports
+surefire-reports/
+jacoco.exec
+
+# Generated sources
+/generated-sources/
+generated-test-sources/
+
+# Ignore build/ except in src
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/

@@ -1,0 +1,22 @@
+services:
+  database:
+    image: postgres:17-alpine
+    container_name: messaging_java
+    restart: always
+    environment:
+      POSTGRES_DB: messaging_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - messaging_java:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+volumes:
+  messaging_java:
