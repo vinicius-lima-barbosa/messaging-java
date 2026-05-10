@@ -16,7 +16,7 @@ public class NotificationPublisher {
     public void publishNotification(UUID notificationId) {
         rabbitTemplate.convertAndSend(
                 "notification.queue",
-                notificationId
+                notificationId.toString()
         );
 
         System.out.println("Mensagem enviada para a fila");
