@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import com.messagingjava.domain.notification.CreateNotificationDTO;
+import com.messagingjava.queues.notification.NotificationPublisher;
 import org.springframework.stereotype.Service;
 
 import com.messagingjava.domain.notification.NotificationResponseDTO;
@@ -13,9 +14,11 @@ import com.messagingjava.repositories.notification.NotificationRepository;
 @Service
 public class NotificationService {
     private final NotificationRepository notificationRepository;
+    private final NotificationPublisher notificationPublisher;
 
-    public NotificationService(NotificationRepository notificationRepository) {
+    public NotificationService(NotificationRepository notificationRepository, NotificationPublisher notificationPublisher) {
         this.notificationRepository = notificationRepository;
+        this.notificationPublisher = notificationPublisher;
     }
 
     private NotificationResponseDTO toDto(NotificationEntity notification) {
@@ -47,6 +50,7 @@ public class NotificationService {
         notification.setRecipient(dto.recipient());
 
         NotificationEntity saved = notificationRepository.save(notification);
+        notificationPublisher.publishNotification(saved.getId());
 
         return toDto(saved);
     }
